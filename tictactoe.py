@@ -1,6 +1,5 @@
 cells = '         '
 cell_list = list(cells)
-blank_cell = 0
 
 
 def fields():
@@ -25,6 +24,7 @@ def game():
             print("You should enter numbers!")
             continue
 
+        # to convert 1-based (Bottom-left) to 0-based (Top-left)
         cell_list_col, cell_list_row = x_coordinates
         cell_list_x = int(cell_list_col) - 1
         cell_list_y = 3 - int(cell_list_row)
@@ -41,6 +41,7 @@ def game():
         else:
             print("This cell is occupied! Choose another one!")
 
+        # This will check if there's a winner after 5th moves.
         if counter >= 5:
             if cell_list[0] == cell_list[1] == cell_list[2] != ' ':
                 print(turn + " wins")
@@ -70,7 +71,7 @@ def game():
         if counter == 9:
             print("Draw!!")
             break
-
+        # changes the player every move.
         if turn == 'X':
             turn = 'O'
         else:
